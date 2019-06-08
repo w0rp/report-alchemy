@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+
+# This script for running the tests is released to the public domain
+
+set -eu
+
+html=1
+run_yarn=1
+run_jest=1
+run_eslint=1
+run_smoke_test=1
+RETURN_CODE=0
+
+while [ $# -ne 0 ]; do
+    case $1 in
+    --no-html)
+        html=0
+        shift
+    ;;
+    --no-yarn)
+        run_yarn=0
+        shift
+    ;;
+    --no-jest)
+        run_jest=0
+        shift
+    ;;
+    --no-eslint)
+        run_eslint=0
+        shift
+    ;;
+    --no-smoke)
+        run_smoke_test=0
+        shift
+    ;;
+    --help)
+        echo 'Usage: ./run-tests [OPTION]...'
+        echo
+        echo 'Run tests for the project.'
+        echo
+        echo 'Options:'
+        echo '  --no-html    Do not show HTML output'
+        echo '  --no-yarn    Do not run yarn'
+        echo '  --no-jest    Do not run jest'
+        echo '  --no-eslint  Do not run ESLint'
+        echo '  --no-smoke   Do not run smoke tests'
+        echo '  --           Stop parsing options after this'
+        exit 0
+    ;;
+    --)
+        shift
+        break
+    ;;
+    -?*)
+        echo "Invalid argument: $1" 1>&2
+        exit 1
+    ;;
+    *)
+        break
+    ;;
+    esac
+done
+
+show-in-browser() {
+    if [ -f "$1" ]; then
+        if command -v xdg-open > /dev/null; then
+            xdg-open "$1"
+        else
+            open "$1"
+        fi
+    fi
+}
+
+if ((run_yarn)); then
+    yarn --no-progress --frozen-lockfile --ignore-engines --silent
+fi
+
+mkdir -p .report
+
+if ((run_jest)); then
+    HTML_REPORT="$html" COVERAGE=1 node_modules/.bin/jest || RETURN_CODE=1
+fi
+
+if ((run_eslint)); then
+    if ((html)); then
+        node_modules/.bin/eslint --ext=.js,.ts src/ \
+            --format html -o .report/eslint.html || RETURN_CODE=1
+    else
+        node_modules/.bin/eslint --ext=.js,.ts src/ || RETURN_CODE=1
+    fi
+fi
+
+if ((run_smoke_test)); then
+    (
+        cd smoke-test
+        rm -rf output
+        mkdir output
+
+        echo 'Running report-alchemy with example files...' 1>&2
+        ../node_modules/.bin/ts-node ../src/cli.ts
+    ) || RETURN_CODE=1
+
+    echo '' 1>&2
+
+    # Output color for diff if we're outputting to a terminal.
+    if [ -t 1 ]; then
+        color='always'
+    else
+        color='never'
+    fi
+
+    if ! diff -ru --color="$color" smoke-test/expected smoke-test/output; then
+        echo '' 1>&2
+        echo 'The reports created did not match the expected output.' 1>&2
+        RETURN_CODE=1
+    fi
+
+    echo 'All reports matched the expected output.' 1>&2
+fi
+
+if ((html)); then
+    show-in-browser .report/eslint.html
+    show-in-browser .report/jest.html
+    show-in-browser .report/coverage/index.html
+fi
+
+exit $RETURN_CODE

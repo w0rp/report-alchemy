@@ -1,0 +1,6 @@
+/.report
+/lib
+/smoke-test/output
+node_modules
+npm-debug.log
+yarn-error.log

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/api.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/api.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/cli.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/cli.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/internal/algorithm.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/internal/algorithm.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/internal/configuration.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/internal/configuration.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/internal/default-plugin/index.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/internal/default-plugin/index.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="2" errors="2" name="/home/w0rp/git/report-alchemy/src/internal/default-plugin/junit.ts">
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;bar&apos; is not defined."><![CDATA[line 5, col 13, Error - &apos;bar&apos; is not defined. (no-undef)]]></failure></testcase>
+<testcase time="0" name="org.eslint.no-multiple-empty-lines"><failure message="More than 1 blank line not allowed."><![CDATA[line 9, col 1, Error - More than 1 blank line not allowed. (no-multiple-empty-lines)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/internal/exception.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/internal/exception.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/internal/io.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/internal/io.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/internal/parse-arguments.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/internal/parse-arguments.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="1" name="/home/w0rp/git/report-alchemy/src/internal/plugin.ts">
+<testcase time="0" name="org.eslint.no-undef"><failure message="&apos;bar&apos; is not defined."><![CDATA[line 3, col 13, Error - &apos;bar&apos; is not defined. (no-undef)]]></failure></testcase>
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/internal/problem-type.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/internal/problem-type.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/internal/typeguard.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/internal/typeguard.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/home/w0rp/git/report-alchemy/src/internal/types.ts">
+<testcase time="0" name="/home/w0rp/git/report-alchemy/src/internal/types.ts" />
+</testsuite>
+</testsuites>
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.report" time="0" tests="3" errors="3" name="/home/w0rp/git/report-alchemy/src/internal/default-plugin/junit.ts">
+<testcase time="0" name="org.report.no-undef"><failure message="&amp;apos;bar&amp;apos; is not defined.">line 5, col 13, Error - &amp;apos;bar&amp;apos; is not defined. (no-undef)</failure></testcase>
+<testcase time="0" name="org.report.no-multiple-empty-lines"><failure message="More than 1 blank line not allowed.">line 9, col 1, Error - More than 1 blank line not allowed. (no-multiple-empty-lines)</failure></testcase>
+<testcase time="0" name="org.report.@typescript-eslint/array-type"><failure message="Array type using &amp;apos;Array&amp;lt;Problem&amp;gt;&amp;apos; is forbidden. Use &amp;apos;Problem[]&amp;apos; instead.">line 75, col 43, Warning - Array type using &amp;apos;Array&amp;lt;Problem&amp;gt;&amp;apos; is forbidden. Use &amp;apos;Problem[]&amp;apos; instead. (@typescript-eslint/array-type)</failure></testcase>
+</testsuite>
+<testsuite package="org.report" time="0" tests="1" errors="1" name="/home/w0rp/git/report-alchemy/src/internal/plugin.ts">
+<testcase time="0" name="org.report.no-undef"><failure message="&amp;apos;bar&amp;apos; is not defined.">line 3, col 13, Error - &amp;apos;bar&amp;apos; is not defined. (no-undef)</failure></testcase>
+</testsuite>
+</testsuites>

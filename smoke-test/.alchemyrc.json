@@ -1,0 +1,18 @@
+{
+  "sources": [
+    {
+      "type": "junit",
+      "filename": "input/junit.xml"
+    },
+    {
+      "type": "junit",
+      "filename": "input/junit2.xml"
+    }
+  ],
+  "sinks": [
+    {
+      "type": "junit",
+      "filename": "output/junit.xml"
+    }
+  ]
+}
