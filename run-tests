@@ -102,14 +102,7 @@ if ((run_smoke_test)); then
 
     echo '' 1>&2
 
-    # Output color for diff if we're outputting to a terminal.
-    if [ -t 1 ]; then
-        color='always'
-    else
-        color='never'
-    fi
-
-    if ! diff -ru --color="$color" smoke-test/expected smoke-test/output; then
+    if ! diff -ru smoke-test/expected smoke-test/output; then
         echo '' 1>&2
         echo 'The reports created did not match the expected output.' 1>&2
         RETURN_CODE=1
