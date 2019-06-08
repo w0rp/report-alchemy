@@ -1,4 +1,6 @@
-# report-alchemy
+# Report Alchemy
+
+[![Travis CI Build Status](https://travis-ci.com/w0rp/report-alchemy.svg?branch=master)](https://travis-ci.com/w0rp/report-alchemy)
 
 Report Alchemy is a command line utility for merging linter or compiler reports
 from various sources and in various formats into one or more sink formats. This
