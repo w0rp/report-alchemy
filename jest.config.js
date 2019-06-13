@@ -25,7 +25,10 @@ if (process.env.HTML_REPORT === '1') {
 if (process.env.COVERAGE === '1') {
   Object.assign(module.exports, {
     collectCoverage: true,
+    collectCoverageFrom: [
+      'src/**/*.ts',
+    ],
     coverageDirectory: path.resolve(__dirname, '.report', 'coverage'),
-    coverageReporters: ['text', 'html'],
+    coverageReporters: ['text-summary', 'html'],
   })
 }

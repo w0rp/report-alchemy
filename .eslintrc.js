@@ -19,6 +19,15 @@ module.exports = {
     'import',
   ],
   rules: {
+    /** Specific AST rules for this project. */
+    'no-restricted-syntax': [
+      'error',
+      // Array.of isn't meant to be called directly, but used as an expression.
+      {
+        selector: "CallExpression[callee.object.name='Array'][callee.property.name='of']",
+        message: 'You probably meant to use Array.from',
+      },
+    ],
     /**
      * Rules that go against StandardJS are here.
      *

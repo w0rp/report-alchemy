@@ -46,9 +46,9 @@ export const openForWriting = (filename: string): Promise<fs.WriteStream> =>
 /**
  * Yield all paths from a start directory up to the root of the filesystem.
  */
-export function * pathsUpwards(startDirectory: string): Iterable<string> {
+export function * pathsUpwards(startDirectory: string): IterableIterator<string> {
   const root = path.parse(startDirectory).root
-  let dir = startDirectory
+  let dir = path.resolve(startDirectory)
 
   while (true) {
     yield dir

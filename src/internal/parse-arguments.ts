@@ -8,11 +8,12 @@ export const parseArguments = (): Arguments => {
   const args: Arguments = {}
 
   const parser = new ArgumentParser({
+    prog: 'report-alchemy',
     version: '0.1.0',
     addHelp: true,
   })
   parser.addArgument(['-c', '--config'], {
-    help: 'A path to a configuration file',
+    help: 'A path to a configuration file.',
   })
 
   const rawArgs = parser.parseArgs() as {[key: string]: unknown}
